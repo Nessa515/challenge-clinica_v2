@@ -1,7 +1,10 @@
 import {Router} from 'express'
 import tutor from '../controllers/tutor';
+import pet from '../controllers/pet';
 
 const router = Router();
+
+
 
 // Get all Tutors
 router.get('/tutor/pet', tutor.getAllTutors)
@@ -10,19 +13,19 @@ router.get('/tutor/pet', tutor.getAllTutors)
 router.post('/tutor', tutor.postTutors)
 
 // Post Pet
-// router.post('/pet/:tutorId', controller.postPets)
+router.post('/pet/:tutorId', pet.postPets)
 
-// // Put Tutor
-// router.put('/tutor/:Id', controller.putTutors)
+//Put Tutor
+router.put('/tutor/:Id', tutor.putTutors)
 
-// // Put Pet
-// router.put('/pet/:petId/tutor/:tutorId', controller.putPets)
+// Put Pet
+router.put('/pet/:petId/tutor/:tutorId', pet.putPets)
 
-// // Delete Tutor
-// router.delete('/tutor/:Id', controller.deleteTutors)
+// Delete Tutor
+router.delete('/tutor/:Id', tutor.deleteTutors)
 
-// // Delete Pet
-// router.delete('/tutor/:tutorId/pet/:petId', controller.deletePets)
+// Delete Pet
+router.delete('/tutor/:tutorId/pet/:petId', pet.deletePets)
 
 
 export {router}

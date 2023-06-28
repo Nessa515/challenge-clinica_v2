@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const petSchema = new mongoose.Schema({
-    id:{
-        type: String,
+    id: {
+        type: Schema.Types.UUID,
         required: false,
     },
     name: {
@@ -15,18 +15,17 @@ const petSchema = new mongoose.Schema({
     },
     carry: {
         type: String,
-        required: [true, 'must carry provide'],
+        required: false
     },
     weight:{
         type: Number,
-        required: [true, 'must weight provide'],
+        required: false
     },
     date_of_birth:{
         type: Date,
-        required: [true, 'must date_of_birth provide']
+        required: false
     },
 },
-{timestamps: true}
 );
 
 const Pet = mongoose.model("Pet", petSchema);
