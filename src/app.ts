@@ -2,9 +2,11 @@ import express from 'express';
 const app = express();
 import {router} from './routes/tutors';
 require('dotenv').config();
-import { notFound } from './middleware/not-found';
-import { errorHandlerMiddleware } from './middleware/error-handler';
+require('express-async-errors');
 import { connectDB } from './database/connect';
+import { errorHandlerMiddleware } from './middlewares/error-handler';
+import{notFound} from './errors/not-found';
+
 
 
 // middleware

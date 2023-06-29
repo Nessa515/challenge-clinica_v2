@@ -1,8 +1,7 @@
 import { Pet, petSchema } from "../model/pets";
 import { Tutor } from "../model/tutors";
 import { Request, Response } from "express";
-import tutor from "./tutor";
-
+import { StatusCodes } from "http-status-codes";
 
 const postPets = (async (req: Request, res:Response) => {
     try {
@@ -18,7 +17,7 @@ const postPets = (async (req: Request, res:Response) => {
         tutor.pets.push(newPet);
         await tutor.save();
 
-        return res.status(201).json(newPet);
+        return res.status(StatusCodes.CREATED).json(newPet);
     } catch (error) {
         res.status(500).json({msg: error});
     }
@@ -49,7 +48,7 @@ const putPets = (async (req: Request, res: Response) => {
 
     await indexTutor.save();
 
-    return res.status(200).json({newPet});
+    return res.status(StatusCodes.OK).json({newPet});
 });
 
 const deletePets = (async (req: Request, res: Response) => {
@@ -69,7 +68,7 @@ const deletePets = (async (req: Request, res: Response) => {
         tutor.pets.remove(idPet);
         await tutor.save();
 
-        return res.status(204).json({});
+        return res.status(StatusCodes.NO_CONTENT).json({});
     } catch (error) {
         res.status(500).json({msg: error});
     }
@@ -78,7 +77,7 @@ const deletePets = (async (req: Request, res: Response) => {
 
 });
 
-export default{
+export{
     postPets,
     putPets,
     deletePets,

@@ -1,9 +1,10 @@
 import mongoose, { Schema } from "mongoose";
+import{v4 as uuidv4} from 'uuid';
 
 const petSchema = new mongoose.Schema({
     id: {
-        type: Schema.Types.UUID,
-        required: false,
+        type: String,
+        default: uuidv4,
     },
     name: {
         type: String,

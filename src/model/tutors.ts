@@ -1,15 +1,20 @@
 import mongoose, { Schema } from "mongoose";
 import { petSchema } from "./pets";
+import{v4 as uuidv4} from 'uuid';
 
 const tutorSchema = new mongoose.Schema({
-    id:{
-        type: Schema.Types.UUID,
-        required: false,
+    _id:{
+        type: String,
+        default: uuidv4,
 
     },
     name:{
         type: String,
         required: [true, 'must name provide'],
+    },
+    password:{
+        type: String,
+        required: [false, 'must password provide'],
     },
     phone:{
         type: Number,
@@ -38,4 +43,4 @@ const tutorSchema = new mongoose.Schema({
 
  const Tutor = mongoose.model("Tutor", tutorSchema);
 
- export{Tutor}
+ export {Tutor}
