@@ -1,8 +1,8 @@
 import {Router} from 'express';
-import {auth} from '../controllers/auth';
+import {auth} from '../controllers/authController';
 import { authentication } from '../middlewares/authentication';
-import {getAllTutors, postTutors, putTutors, deleteTutors} from '../controllers/tutor';
-import {postPets, putPets, deletePets} from '../controllers/pet';
+import {getAllTutors, postTutors, putTutors, deleteTutors} from '../controllers/tutorController';
+import {postPets, putPets, deletePets} from '../controllers/petController';
 
 const router = Router();
 

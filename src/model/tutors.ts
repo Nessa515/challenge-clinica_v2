@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
 import { petSchema } from "./pets";
 import{v4 as uuidv4} from 'uuid';
 
@@ -43,4 +43,4 @@ const tutorSchema = new mongoose.Schema({
 
  const Tutor = mongoose.model("Tutor", tutorSchema);
 
- export {Tutor}
+ export {Tutor, tutorSchema}

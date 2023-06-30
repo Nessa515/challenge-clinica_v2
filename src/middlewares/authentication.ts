@@ -1,6 +1,5 @@
 import jwt, { verify } from 'jsonwebtoken'
 import { Request, Response, NextFunction } from 'express';
-import { Tutor } from '../model/tutors';
 import { Unauthorized } from '../errors/unauthorized';
 require('express-async-errors');
 
