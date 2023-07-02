@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { PetService } from "../services/petService";
-import { Tutor } from "../model/tutors";
 
 const petService = new PetService();
 
@@ -13,7 +12,7 @@ const postPets = (async (req: Request, res:Response) => {
 
         const newPet = await petService.postPet({id, name, species, carry, weight, date_of_birth}, idTutor);
         if(!newPet){
-            return res.status(404).json({msg: `No tutor with id ${idTutor}`});
+            return res.status(StatusCodes.BAD_REQUEST).json({msg: `No tutor with id ${idTutor}`});
         }
 
         return res.status(StatusCodes.CREATED).json(newPet);
@@ -34,7 +33,12 @@ const putPets = (async (req: Request, res: Response) => {
         if(!newPet){
             return res.status(404).json({msg: `No tutor or Pet with given id`});
         }
-        return res.status(StatusCodes.OK).json({newPet});
+        return res.status(StatusCodes.OK).json({name: newPet.name,
+        species: newPet.species,
+        carry: newPet.carry,
+        weight: newPet.weight,
+        date_of_birth: newPet.date_of_birth
+    });
     } catch (error) {
         res.status(500).json({msg: error});
     }
@@ -50,7 +54,7 @@ const deletePets = (async (req: Request, res: Response) => {
         if(!pet){
             return res.status(StatusCodes.NOT_FOUND).json({msg: `No pet with ${idPet} or no tutor with ${idTutor}`}); 
         }  
-        return res.status(StatusCodes.NO_CONTENT).json({});
+        return res.status(StatusCodes.NO_CONTENT).json();
     } catch (error) {
         res.status(500).json({msg: error});
     }

@@ -34,6 +34,7 @@ class PetRepository{
         return pet;
     }
 
+
     public async deletePet(tutorId: string, petId: string){
         const tutor = await Tutor.findById(tutorId);
         if(!tutor){
@@ -47,7 +48,7 @@ class PetRepository{
 
         tutor.pets.remove(petId)
         await tutor.save();
-        return true;
+        return tutor;
     }
 }
 

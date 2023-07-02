@@ -1,6 +1,7 @@
 import { app } from "./app";
 import { connectDB } from "./database/connect";
 
+
 // Porta
 const port = process.env.PORT || 3000
 

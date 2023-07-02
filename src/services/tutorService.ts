@@ -1,6 +1,4 @@
-import { Tutor } from "../model/tutors";
 import { TutorRepository } from "../repositories/tutorRepository"
-
 
 class TutorService{
     private tutorRepository: TutorRepository;
@@ -12,7 +10,6 @@ class TutorService{
 
     public async getAllTutors(){
         return this.tutorRepository.getAll();
-        //return this.tutorRepository.getAll();
     }
 
     public async postTutors(tutorData: any){
@@ -24,7 +21,8 @@ class TutorService{
     }
 
     public async delTutors(id: string){
-        return this.tutorRepository.deleteTutor(id);
+        await this.tutorRepository.deleteTutor(id);
+       // return this.tutorRepository.deleteTutor(id);
 
     }
 

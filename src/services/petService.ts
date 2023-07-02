@@ -16,8 +16,8 @@ class PetService{
         return this.petRepository.updatePet(tutorId, petId, petData);
     }
 
-    public async delPets(tutorId: string, petId: string){
-        return this.petRepository.deletePet(tutorId, petId);
+    public async delPets(petId: string, tutorId: string){
+        return this.petRepository.deletePet(petId, tutorId);
     }
 }
 

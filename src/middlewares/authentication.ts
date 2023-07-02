@@ -1,7 +1,6 @@
 import jwt, { verify } from 'jsonwebtoken'
 import { Request, Response, NextFunction } from 'express';
 import { Unauthorized } from '../errors/unauthorized';
-require('express-async-errors');
 
 
 type JwtPayload = {

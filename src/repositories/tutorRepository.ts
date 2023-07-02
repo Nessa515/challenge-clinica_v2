@@ -1,5 +1,6 @@
-import {Tutor}  from "../model/tutors"
-
+import { BadRequestError } from "../errors/bad-request";
+import { CustomAPIError } from "../errors/custom-Errors";
+import {Tutor}  from "../model/tutors";
 
 
 class TutorRepository{
@@ -21,7 +22,16 @@ class TutorRepository{
     }
 
     public async deleteTutor(id: string){
-        return Tutor.findByIdAndDelete({_id: id});
+        await Tutor.findByIdAndDelete(id);
+        // const tutor = Tutor.findById({_id: id});
+
+        // if(!tutor){
+        //     return false
+        // } else if(!((await tutor).pets.length == 0)){
+        //     return false
+        // }
+
+        // return Tutor.findOneAndDelete(tutor);
     }
         
     

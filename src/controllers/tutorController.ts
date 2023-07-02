@@ -2,6 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import { Request, Response } from "express";
 import { TutorService } from "../services/tutorService";
 import bcrypt from 'bcrypt';
+import { Tutor } from "../model/tutors";
 
 const tutorService = new TutorService();
 
@@ -40,9 +41,14 @@ const putTutors = (async (req: Request, res: Response) => {
         const tutor = await tutorService.putTutors(idTutor, tutorData);
 
         if(!tutor){
-            return res.status(404).json({msg: `No tutor with ${idTutor}`});
+            res.status(StatusCodes.BAD_REQUEST).json({msg: `No tutor with ${idTutor}`});
         }
-        res.status(StatusCodes.OK).json({tutor})
+        res.status(StatusCodes.OK).json({name: tutor.name, 
+            phone: tutor.phone, 
+            email: tutor.email, 
+            date_of_birth: tutor.date_of_birth, 
+            zip_code: tutor.zip_code
+        });
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error});
     }
@@ -52,22 +58,25 @@ const putTutors = (async (req: Request, res: Response) => {
 
 
 const deleteTutors = (async (req: Request, res: Response) => {
+    const idTutor = req.params.Id;
     try {
-        const idTutor = req.params.Id;
-
-        const tutor = await tutorService.delTutors(idTutor);
-
+        const tutor = await Tutor.findById(idTutor);
         if(!tutor){
-        return res.status(404).json({msg: `No tutor with ${idTutor}`});
+            res.status(StatusCodes.NOT_FOUND).json({msg: `No tutor with id ${idTutor}`});
         }
 
-        if(!(tutor.pets.length == 0)){
-            return res.status(StatusCodes.BAD_REQUEST).json({msg:'Cannot deleted tutor with an associated pet'});
-        }
+        else if(!(tutor.pets.length == 0)){
+            res.status(StatusCodes.NOT_FOUND).json({msg: 'Cannot delete a tutor with an associated pet'});
+        }else{
+        await tutorService.delTutors(idTutor);
         return res.status(StatusCodes.NO_CONTENT).json({});
+        }
+
     } catch (error) {
-        res.status(500).json({msg: error});
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error});
     }
+    
+
 });
 
 
