@@ -22,11 +22,11 @@ const postTutors = (async (req: Request, res: Response) => {
         const {name, password, email, phone, date_of_birth, zip_code} = req.body
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-        const tempUser = {name, email, phone, date_of_birth, zip_code, password: hashedPassword}
+        const tempUser = {name, password: hashedPassword, email, phone, date_of_birth, zip_code}
 
 
-        const tutor = await tutorService.postTutors({...tempUser});
-        res.status(StatusCodes.CREATED).json({tutor});
+        const tutor = await tutorService.postTutors(req.body);
+        res.status(StatusCodes.CREATED).json({tutor: tempUser});
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error});
     }

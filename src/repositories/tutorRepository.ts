@@ -1,5 +1,3 @@
-import { BadRequestError } from "../errors/bad-request";
-import { CustomAPIError } from "../errors/custom-Errors";
 import {Tutor}  from "../model/tutors";
 
 
