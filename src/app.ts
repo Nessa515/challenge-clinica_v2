@@ -13,6 +13,8 @@ app.use(express.json());
 
 // Route
 app.use('/', router);
+
+// Swagger
 app.use('/api', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Middleware

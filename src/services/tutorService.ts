@@ -22,8 +22,6 @@ class TutorService{
 
     public async delTutors(id: string){
         await this.tutorRepository.deleteTutor(id);
-       // return this.tutorRepository.deleteTutor(id);
-
     }
 
 

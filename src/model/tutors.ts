@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from "mongoose";
+import mongoose from "mongoose";
 import { petSchema } from "./pets";
 import{v4 as uuidv4} from 'uuid';
 

@@ -1,5 +1,4 @@
 
-import { BadRequestError } from "../errors/bad-request";
 import { CustomAPIError } from "../errors/custom-Errors";
 import { AuthRepository } from "../repositories/authRepository";
 import jwt from 'jsonwebtoken';

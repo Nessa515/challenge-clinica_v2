@@ -6,6 +6,7 @@ import { Tutor } from "../model/tutors";
 
 const tutorService = new TutorService();
 
+
 const getAllTutors = (async (req: Request, res: Response) => {
     try {
         const tutors = await tutorService.getAllTutors();
@@ -13,7 +14,6 @@ const getAllTutors = (async (req: Request, res: Response) => {
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error});
     }
-
 });
 
 
@@ -41,7 +41,7 @@ const putTutors = (async (req: Request, res: Response) => {
         const tutor = await tutorService.putTutors(idTutor, tutorData);
 
         if(!tutor){
-            res.status(StatusCodes.BAD_REQUEST).json({msg: `No tutor with ${idTutor}`});
+            res.status(StatusCodes.BAD_REQUEST).json({msg: `No tutor with id ${idTutor}`});
         }
         res.status(StatusCodes.OK).json({name: tutor.name, 
             phone: tutor.phone, 
@@ -52,8 +52,6 @@ const putTutors = (async (req: Request, res: Response) => {
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error});
     }
-
-
 });
 
 
@@ -75,8 +73,6 @@ const deleteTutors = (async (req: Request, res: Response) => {
     } catch (error) {
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({msg: error});
     }
-    
-
 });
 
 

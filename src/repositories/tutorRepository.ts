@@ -7,7 +7,6 @@ class TutorRepository{
 
     public async getAll(){
         return Tutor.find({}, '-password')
-        //return Tutor.find({});
     }
 
     public async createTutor(tutorData: any){
@@ -23,18 +22,8 @@ class TutorRepository{
 
     public async deleteTutor(id: string){
         await Tutor.findByIdAndDelete(id);
-        // const tutor = Tutor.findById({_id: id});
-
-        // if(!tutor){
-        //     return false
-        // } else if(!((await tutor).pets.length == 0)){
-        //     return false
-        // }
-
-        // return Tutor.findOneAndDelete(tutor);
     }
-        
-    
 
 }
+
 export {TutorRepository};
