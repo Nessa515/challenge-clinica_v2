@@ -49,20 +49,16 @@ Install the dependencies
 
 ## Running locally
 
-Before running the application, you should create a .env file with the following variables:
-
-```
-challenge-clinica-v2/
-src/
-.env
-```
-
-```
-JWT_SECRET=string of your choice
-```
-
 After installing and following the instructions above, run the following command to run the application:
 
 ```bash
     npm run dev
 ```
+
+## Environment variables
+
+To run this project, you will need to add the following environment variables to your .env
+
+`- MONGO_URI`
+
+`- JWT_SECRET`
