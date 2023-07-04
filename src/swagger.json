@@ -18,8 +18,8 @@
   "paths": {
     "/tutor":{
       "post":{
-        "sumary": "Cadastro de tutor",
-        "description": "Rota responsável por cadastrar novo tutor",
+        "sumary": "Registration of tutor",
+        "description": "Route responsible for registering a new tutor",
         "tags": ["Tutor"],
         "requestBody": {
           "content":{
@@ -62,15 +62,15 @@
     },
     "/tutor/{Id}":{
       "put":{
-        "sumary": "Atualização de tutor",
-        "description": "Rota responsável por atualizar um tutor pelo ID",
+        "sumary": "Tutor update",
+        "description": "Route responsible for updating a tutor by ID",
         "tags": ["Tutor"],
         "security": [{"bearerAuth": []}],
         "parameters":[
           {
             "name": "Id",
             "in": "path",
-            "description":"Atualização do tutor pelo ID",
+            "description":"Tutor update by ID",
             "required": true
           }
         ],
@@ -116,15 +116,15 @@
         }
       },
       "delete":{
-        "sumary": "Deleção de tutor",
-        "description": "Rota responsável por deletar um tutor pelo ID",
+        "sumary": "Tutor deletion",
+        "description": "Route responsible for deleting a tutor by ID",
         "tags": ["Tutor"],
         "security": [{"bearerAuth": []}],
         "parameters":[
           {
             "name": "Id",
             "in": "path",
-            "description":"Deleção do tutor pelo ID",
+            "description":"Tutor deletion by ID",
             "required": true
           }
         ],
@@ -140,15 +140,15 @@
     },
     "/pet/{tutorId}":{
       "post":{
-        "sumary": "Cadastro de pet",
-        "description": "Rota responsável por cadastrar novo pet ao Id de um tutor que  já existe",
+        "sumary": "Pet registration",
+        "description": "Route responsible for registering a new pet to the ID of an existing tutor",
         "tags": ["Pet"],
         "security": [{"bearerAuth": []}],
         "parameters":[
           {
             "name": "tutorId",
             "in": "path",
-            "description":"Cadastro do pet no ID do tutor",
+            "description":"Pet registration under the tutor's ID",
             "required": true
           }
         ],
@@ -195,21 +195,21 @@
     },
     "/pet/{petId}/tutor/{tutorId}":{
       "put":{
-        "sumary": "Atualização de pet",
-        "description": "Rota responsável por atualizar um pet pelo id",
+        "sumary": "Pet update",
+        "description": "Route responsible for updating a pet by ID",
         "tags": ["Pet"],
         "security": [{"bearerAuth": []}],
         "parameters":[
           {
             "name": "petId",
             "in": "path",
-            "description":"Atualização do pet pelo ID próprio e do tutor",
+            "description":"Pet update by its own ID and the tutor's ID",
             "required": true
           },
           {
             "name": "tutorId",
             "in": "path",
-            "description":"Atualização do pet pelo ID próprio e do tutor",
+            "description":"Pet update by its own ID and the tutor's ID",
             "required": true
           }
         ],
@@ -257,21 +257,21 @@
     },
     "/tutor/{tutorId}/pet/{petId}":{
       "delete":{
-        "sumary": "Deleção de pet",
-        "description": "Rota responsável por deletar um pet pelo ID",
+        "sumary": "Pet deletion",
+        "description": "Route responsible for deleting a pet by ID",
         "tags": ["Pet"],
         "security": [{"bearerAuth": []}],
         "parameters":[
           {
             "name": "petId",
             "in": "path",
-            "description":"Deleção do pet pelo ID próprio e do tutor",
+            "description":"Pet deletion by its own ID and the tutor's ID",
             "required": true
           },
           {
             "name": "tutorId",
             "in": "path",
-            "description":"Deleção do pet pelo ID próprio e do tutor",
+            "description":"Pet deletion by its own ID and the tutor's ID",
             "required": true
           }
         ],
@@ -287,8 +287,8 @@
     },
     "/tutor/pet":{
       "get":{
-        "sumary": "Busca dos tutores",
-        "description": "Busca de todos os tutores",
+        "sumary": "Tutors search",
+        "description": "Search for all tutors",
         "tags": ["Tutor"],
         "security": [{"bearerAuth": []}],
         "responses":{
@@ -313,8 +313,8 @@
     },
     "/auth":{
       "post":{
-        "sumary":"Autenticação de um tutor",
-        "description": "Autenticação de um tutor para gerar um token",
+        "sumary":"Tutor authentication",
+        "description": "Tutor authentication to generate a token",
         "tags":["Auth"],
         "requestBody": {
           "content":{
@@ -508,7 +508,7 @@
     },
     "securitySchemes":{
       "bearerAuth":{
-        "description": "Autenticação usando JWT",
+        "description": "Authentication using JWT (JSON Web Token)",
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
