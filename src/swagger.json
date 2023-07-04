@@ -30,11 +30,11 @@
               "examples":{
                 "tutor":{
                   "value":{
-                    "name": "Vanessa Oliveira",
-                    "password": "vanessa846795",
+                    "name": "Lana Lima",
+                    "password": "lana_lima95",
                     "phone": 69991458726,
-                    "email": "vanessa@gmail.com",
-                    "date_of_birth": "10-08-2003",
+                    "email": "lana_llima@gmail.com",
+                    "date_of_birth": "08-02-2003",
                     "zip_code": 84756900
                   }
                 }
@@ -161,11 +161,11 @@
               "examples":{
                 "pet":{
                   "value":{
-                    "name": "Lolo",
+                    "name": "Rex",
                     "species": "dog",
                     "carry": "p",
                     "weight": 5,
-                    "date_of_birth": "10-08-2003"
+                    "date_of_birth": "11-07-2003"
                   }
                 }
               }
@@ -325,8 +325,8 @@
             "examples":{
               "pet":{
                 "value":{
-                  "email": "vanessa@gmail.com",
-                  "password": "vanesa45454"
+                  "email": "marcos@gmail.com",
+                  "password": "marcos45454"
                 }
               }
             }
