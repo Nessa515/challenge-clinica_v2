@@ -52,7 +52,7 @@
               "application/json":{
                 "schema":{
                   "type": "object",
-                  "$ref":"#/components/schemas/Tutor"
+                  "$ref":"#/components/schemas/responseTutor"
                 }
               }
             }
