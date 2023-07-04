@@ -323,7 +323,7 @@
                 "$ref": "#/components/schemas/createWebtoken"
             },
             "examples":{
-              "pet":{
+              "tutor":{
                 "value":{
                   "email": "marcos@gmail.com",
                   "password": "marcos45454"
